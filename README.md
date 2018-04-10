@@ -134,7 +134,7 @@ The fundamental beliefs of Sikhism are articulated in the scripture Guru **Grant
 
 The **Quran** is the central religious text of Islam, which Muslims believe to be a revelation from God (Allah). Muslims believe that the Quran was verbally revealed by God to Muhammad through the angel Gabriel (Jibril), gradually over a period of approximately 23 years.
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. 
+[//]: # 
 
    [Successories web collection of most popular quotes]: https://www.successories.com/iquote/authors/most
 
