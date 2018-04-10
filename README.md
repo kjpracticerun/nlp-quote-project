@@ -106,7 +106,7 @@ Note stopwords were done separately for each dataset.  All used the nltk stopswo
 #### Supervised Learning 
 Supervised learning was done for the both the top 10 authors and scripture datasets with the quote field as the feature source and the author field as the label.  Several different types of models were tested including MultinomialNB, LogisticRegression and RandomForestClassifiers.  Each model was setup in a pipeline that also included a vectorization stage (Either CountVectorizer or TfidfVectorizer was used to tranform the feature text into a Bag of Words representation), and in some tests with LogisticRegression models a PCA (Principal Component Analysis) stage was also included.  The various pipelines were then each run through a GridSearchCV numerous times with various parameters being tested and changed. Note the GridSearchCV was fitted with a training set that was either 80% or 90% of the dataset and model accuracy was then scored with the remaining 20 or 10% test set. Given the datesets were small the test could not be any larger and all models performed better with 90%/10% split.   
 
-##### Supervised Learning Results
+#### Supervised Learning Results
 With both datasets, the Naive Bayes model (MultinomialNB) was the best performer with  LogisticRegression not far behind.  The ensemble RandomForestClassifier did not perform well with either dataset.
 
 **Scriptures**
