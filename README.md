@@ -97,7 +97,7 @@ Quran (486)<br></br>
 (**total of 2,199 quotes**)
 
 #### Data Transformation
-Once the datasets were determined for supervised modeling, I transformed the quotes, first removing the stopwords and punctuation, then lemmatizing the resulting text for verbs, adjectives and nouns and finally stemming the result. Note the SnowballStemmer was used in place of the PorterStemmer but I didn’t see a significant difference in the resulting text. Each stage was stored as part of the datasets dataframe which was then written to _.csv_ file. 
+Once the datasets were determined for supervised modeling, I transformed the quotes, first removing the stopwords and punctuation, then lemmatizing the resulting text for verbs, adjectives and nouns and finally stemming the result. Note the SnowballStemmer was used in place of the PorterStemmer, however, I didn’t see a significant difference in the resulting text. Each stage of the transformation was stored as part of the datasets dataframe which was then written to _.csv_ file. 
 
 Note stopwords were done separately for each dataset.  All used the nltk stopswords as their base, but each supervised dataset had a few of their own additions.  For the top 10 authors, only ["n't"] was added.  For the scriptures, the following were added ["unto", "thee", "ye", "thy"].  For the unsupervised dataset that included all the quotes transformed, I used the basic stopwords and added ["n't", "unto", "thee", "ye", "thy"].  Looking back, I believe I could have used the same stopword list for all datasets, but initially I wanted the flexibility to try different lists on different datasets if needed.
 
