@@ -39,7 +39,7 @@ Project code is broken out into three jupyter notebooks that can be found in the
 
 * **capstone-started.ipynb**: The notebook extracts/scrapes data from the web site and persists the observations to csv files under the _quote_data_ directory.
 * **capstone-eda.ipynb**: The notebook reviews the quote collection and ultimately creates two collections for prediction modeling 1) Top 10 Authors (to help reduce classification) and 2) Scriptures.  All quotes are transformed  - cleaned of stopwords, lemmatized and then stemmed.  Each stage is a feature in a dataframe that is then written to a csv file and used in the modeling phase.
-* **capstone-modeling.ipynb**: The notebook, through pipelines and gridsearchCV tests various supervised models (MultinomialNB, Logistic Regression and RandomForestClassifier) on the Top10 Authors and Scripture datasets.  Unsupervised learning is also performed with gensism LDA (Latent Dirichlet Allocation) model.
+* **capstone-modeling.ipynb**: The notebook, through pipelines and gridsearchCV tests various supervised models (MultinomialNB, Logistic Regression and RandomForestClassifier) on the Top10 Authors and Scripture datasets.  Unsupervised learning is also performed with gensim’s LDA (Latent Dirichlet Allocation) model.
 
 #### Datasets
 The _datasets_ directory contains the feature engineered datasets that are used by modeling notebook.
