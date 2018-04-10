@@ -64,7 +64,7 @@ The _quote_data_ directory includes the original dataset resulting from the scra
 
 The Successories quote site is alphabetic and somewhat deeply nested; however, data will only need to be scraped once as the content is relatively static. The process of extracting all authors quotes is iterative and will include multiple GET request to the site.  To minimize any impact there is a delay of .5 seconds before each request is submitted. 
 
-The steps for extraction are... iterate through each letter's (A-Z) url.  Each letter includes a list of alphabetized sub-urls (ex. _Aa-Ab_, _Ac-Ad_, _Ae-Af_ etc...).  Iterate through each letter's sub-urls and collect all of the authors urls within that page.  Once all of the author urls have been collected for the given letter, iterate through that list and collect the quotes for each author.  Note the quotes may be several pages deep so in many cases they will have to be iterated through as well. 
+The steps for extraction are... iterate through each letter's (A-Z) url.  Each letter includes a list of alphabetized sub-urls (ex. _Aa-Ab_, _Ac-Ad_, _Ae-Af_ etc...).  Iterate through each letter's sub-urls and collect all of the authors urls within that page.  Once all of the author urls have been collected for the given letter, iterate through that list and collect the quotes for each author.  Note the each author’s quotes may be several pages deep so in many cases they will have to be iterated through as well. 
 
 ![Example of Site Layout](example.png "Example")
 
