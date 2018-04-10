@@ -1,6 +1,6 @@
 # Capstone Project: Predicting a Quote's Author
 
-My project topic was inspired by a desire to learn more about Natural Language Processing (NLP).  My goal was to use both supervised and unsupervised machine learning models to explore a collection of quotes that are from a diverse group of professions (politicians and political leaders, musicians, poets, playwrites, scientists, business people, actors, artists, activists, philosophers and religious texts) nationalities and centuries and address two problem statements.
+My project topic was inspired by a desire to learn more about Natural Language Processing (NLP).  My goal was to use both supervised and unsupervised machine learning models to explore a collection of quotes that are from a diverse group of people (politicians and political leaders, musicians, poets, playwrites, authors, scientists, business people, actors, artists, activists, athletes and philosophers) and address two problem statements.
 * **Problem Statement 1**: Given a collection of quotes, can the author of the quote be identified based on content and style.
 * **Problem Statement 2**: Given a random collection of quotes can a set of common topics/themes be identified.
  
