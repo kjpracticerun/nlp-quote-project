@@ -54,7 +54,7 @@ The _datasets_ directory contains the feature engineered datasets that are used 
 #### Gridsearch Results
 The _gridsearch_results_ directory includes results from the various gridsearchCVs run over the various pipelines. To help with the supervised modeling process, I began writing estimator details to a dataframe and then to a .csv file so that I would have a history of performance (accuracy scores) for the different parameters.  This is mostly an internal dataset for my benefit so I will not provided more details at this time.
 
-* **gs_results.csv**: File containing score and parameter details for the numerous gribsearchCVs are the varous models and datasets.
+* **gs_results.csv**: File containing score and parameter details for the numerous gribsearchCVs and the various datasets and models.
 
 #### Quote Data
 The _quote_data_ directory includes the original dataset resulting from the scrape of the Successories web site.  There is more or less a _.csv_ file for each letter in the alphabet.  The scraping process included multiple GET requests and could be somewhat time expensive. To help reduce any potential issues (timeouts or otherwise) and minimize any data loss that might occur as a result, the scraping process was broken down into alphabetic batches.  In some cases, if the number of authors for a given letter was small, letters could be combined into one batch (ex. the letters i and q). 
