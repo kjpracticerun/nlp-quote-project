@@ -4,9 +4,8 @@ My project topic was inspired by a desire to learn more about Natural Language P
 * **Problem Statement 1**: Given a collection of quotes, can the author of the quote be identified based on content and style.
 * **Problem Statement 2**: Given a random collection of quotes can a set of common topics/themes be identified.
  
-The quotes scraped from the Successories web site are from a diverse group of people (politicians and political leaders, musicians, poets, playwrites, scientists, business people, actors, artists, activists, philosophers) spanning multiple centuries.
 
-The orginal data source for the project is the [Successories web collection of most popular quotes].  Quotes were obtained for all authors from A to Z.  Extracted attributes were:
+The original data source for the project is the [Successories web collection of most popular quotes].  Quotes were obtained for all authors from A to Z.  Extracted attributes were:
 * author
 * quote
 
@@ -135,7 +134,9 @@ The fundamental beliefs of Sikhism are articulated in the scripture Guru **Grant
 
 The **Quran** is the central religious text of Islam, which Muslims believe to be a revelation from God (Allah). Muslims believe that the Quran was verbally revealed by God to Muhammad through the angel Gabriel (Jibril), gradually over a period of approximately 23 years.
 
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. 
 
+   [Successories web collection of most popular quotes]: https://www.successories.com/iquote/authors/most
 
 
 
