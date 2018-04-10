@@ -72,7 +72,7 @@ Note the extraction code was designed so that quotes could be extracted in batch
 
 ## III. Data and Data Transformation
 
-##### The Data
+#### The Data
 Several steps were taken to prepare the scraped data for modeling.  First, the dataset included 6945 authors - a very large count for supervised classification modeling. Also, many of the authors had only a limited number of quotes - to few for effective modeling.  In order reduce the number of authors to a reasonable classification problem and also ensure that the authors had a sufficient number of quotes for modeling, data was group by author, his/her quotes were counted and then ordered in descending order.  I reviewed the top 15 authors and decided to exclude authors that were not individuals (i.e. Bible, Quran, Granth Sahib) or were 'Unknown' and then re-grouped and re-counted.  From there I selected the top 10 authors which gave me an all male list with each author having more than 300 quotes.  
 
 > **List of top 10 authors and their quote count**
@@ -96,7 +96,7 @@ I was also curious about the religious sources that were scraped so I decided to
 > Quran (486)
 > (**total of 2,199 quotes**)
 
-##### Data Transformation
+#### Data Transformation
 Once the datasets were determined for supervised modeling, I transformed the quotes, first removing the stopwords and punctuation, then lemmatizing the resulting text for verbs, adjectives and nouns and finally stemming the lemmatized result.  Each stage was stored as part of the datasets dataframe which was then written to _.csv_ file. 
 
 Note stopwords were done separately for each dataset.  All used the nltk stopswords as their base, but each supervised dataset had a few of their own additions.  For the top 10 authors, only ["n't"] was added.  For the scriptures, the following were added ["unto", "thee", "ye", "thy"].  For the unsupervised dataset that included all the quotes transformed, I used the basic stopwords and added ["n't", "unto", "thee", "ye", "thy"].  Looking back, I believe I could have used the same stopword list for all datasets, but initially I wanted the flexibility to try different lists on different datasets if needed.
