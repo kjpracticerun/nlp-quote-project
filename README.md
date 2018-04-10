@@ -68,36 +68,36 @@ The steps for extraction are... iterate through each letter's (A-Z) url.  Each l
 
 ![Example of Site Layout](example.png "Example")
 
-Note the extraction code was designed so that quotes could be extracted in batches of either one or more letters.  In most cases, one letter representx a batch.  Once extraction is completed for a given batch, the quote data is written to a _.csv_ file.
+Note the extraction code was designed so that quotes could be extracted in batches of either one or more letters.  In most cases, one letter represents a batch.  Once extraction is completed for a given batch, the quote data is written to a _.csv_ file.
 
 ## III. Data and Data Transformation
 
 #### The Data
-Several steps were taken to prepare the scraped data for modeling.  First, the dataset included 6945 authors - a very large count for supervised classification modeling. Also, many of the authors had only a limited number of quotes - to few for effective modeling.  In order reduce the number of authors to a reasonable classification problem and also ensure that the authors had a sufficient number of quotes for modeling, data was group by author, his/her quotes were counted and then ordered in descending order.  I reviewed the top 15 authors and decided to exclude authors that were not individuals (i.e. Bible, Quran, Granth Sahib) or were 'Unknown' and then re-grouped and re-counted.  From there I selected the top 10 authors which gave me an all male list with each author having more than 300 quotes.  
+Several steps were taken to prepare the scraped data for modeling.  First, the dataset included 6945 authors - a very large count for supervised classification modeling. Also, many of the authors had only a limited number of quotes - too few for effective modeling.  In order reduce the number of authors to a reasonable classification problem and also ensure that the authors had a sufficient number of quotes for modeling, data was group by author, his/her quotes were counted and then ordered in descending order.  I reviewed the top 15 authors and decided to exclude authors that were not individuals (i.e. Bible, Quran, Granth Sahib) or were 'Unknown' and then re-grouped and re-counted.  From there I selected the top 10 authors which gave me an all male list with each author having more than 300 quotes.  
 
-> **List of top 10 authors and their quote count**
-> Ralph Waldo Emerson (888)
-> Mark Twain (679)
-> William Shakespeare (574)
-> Oscar Wilde (509)
-> Albert Einstein (485)
-> George Bernard Shaw (402)
-> Ambrose Gwinett Bierce (398)
-> Henry David Thoreau (396)
-> Friedrich Wilhelm Nietzsche (393)
-> Scott McClellan (354)
-> (**total of 5,078 quotes**)
+**List of top 10 authors and their quote count**
+Ralph Waldo Emerson (888)
+Mark Twain (679)
+William Shakespeare (574)
+Oscar Wilde (509)
+Albert Einstein (485)
+George Bernard Shaw (402)
+Ambrose Gwinett Bierce (398)
+Henry David Thoreau (396)
+Friedrich Wilhelm Nietzsche (393)
+Scott McClellan (354)
+(**total of 5,078 quotes**)
 
 I was also curious about the religious sources that were scraped so I decided to keep those as a separate dataset and attempt to model them as well. 
 
-> **Religious scriptures and their quote count**
-> Bible (1139)
-> Granth Sahib (574)
-> Quran (486)
-> (**total of 2,199 quotes**)
+**Religious scriptures and their quote count**
+Bible (1139)
+Granth Sahib (574)
+Quran (486)
+(**total of 2,199 quotes**)
 
 #### Data Transformation
-Once the datasets were determined for supervised modeling, I transformed the quotes, first removing the stopwords and punctuation, then lemmatizing the resulting text for verbs, adjectives and nouns and finally stemming the lemmatized result.  Each stage was stored as part of the datasets dataframe which was then written to _.csv_ file. 
+Once the datasets were determined for supervised modeling, I transformed the quotes, first removing the stopwords and punctuation, then lemmatizing the resulting text for verbs, adjectives and nouns and finally stemming the result. Note the SnowballStemmer was used in place of the PorterStemmer but I didn’t see a significant difference in the resulting text. Each stage was stored as part of the datasets dataframe which was then written to _.csv_ file. 
 
 Note stopwords were done separately for each dataset.  All used the nltk stopswords as their base, but each supervised dataset had a few of their own additions.  For the top 10 authors, only ["n't"] was added.  For the scriptures, the following were added ["unto", "thee", "ye", "thy"].  For the unsupervised dataset that included all the quotes transformed, I used the basic stopwords and added ["n't", "unto", "thee", "ye", "thy"].  Looking back, I believe I could have used the same stopword list for all datasets, but initially I wanted the flexibility to try different lists on different datasets if needed.
 
@@ -110,10 +110,11 @@ Supervised learning was done for the both the top 10 authors and scripture datas
 With both datasets, the Naive Bayes model (MultinomialNB) was the best performer with  LogisticRegression not far behind.  The ensemble RandomForestClassifier did not perform well with either dataset.
 
 **Scriptures**
-The baseline for the scripture dataset was .518 and the MultinomialNB model was able to achieve an accuracy score .945 using quote data with only stopwords removed and tokenized, counted and normalized with a TfidfVectorizer. The parameters for the vectorizer included lowercase=False, max_df=0.5, max_feaures=None and ngrams=(1,2)
+The baseline for the scripture dataset was .518 and the MultinomialNB model was able to achieve an accuracy score .945 using quote data with only stopwords removed and tokenized, counted and normalized with a TfidfVectorizer. The parameters for the vectorizer included lowercase=False, max_df=0.5, max_features=None and ngrams=(1,2).  Parameters for the classifier included an alpha=0.2 and a fit_prior=False.
 
 **Top 10 Authors**
-The baseline for the top 10 dataset was just .175 and the MultinomialNB model was able to achieve an accuracy score .604 accuracy with the following parameters using quote data with only stopwords removed and tokenized, counted with a CountVectorizer. The parameters for the vectorizer included lowercase=False, max_df=0.5, max_feaures=None and ngrams=(1,2)
+The baseline for the top 10 dataset was just .175 and the MultinomialNB model was able to achieve an accuracy score .604 accuracy with the following parameters using quote data with only stopwords removed and tokenized, counted with a CountVectorizer. The parameters for the vectorizer included lowercase=True, max_df=0.5, min_df=1, max_feaures=None and ngrams=(1,2).  Parameters for the classifier included an alpha=0.2 and a fit_prior=True.
+
 
 #### Unsupervised Learning
 Given the large number of quotes (102,455) from a such a diverse group of people, it seemed like an interesting opportunity to attempt to identify some overall themes.  Topic modeling was performed using Gensim's Latent Dirichlet Allocation (LDA) model.  Initial attempts have not yet yielded results that reveal any structure to the collection, but modeling is still ongoing.  My first few attempts included modeling for a higher number of topic (20 or more) with a lower number of passes.  The higher number of topics is probably better if attempting to discover possible features within the document collection.  I since have reduced the number of topics to about 5 and increased the number of passes from 50 to 75 to see if that reveals more.
