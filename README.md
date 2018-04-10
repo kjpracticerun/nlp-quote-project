@@ -48,11 +48,11 @@ The _datasets_ directory contains the feature engineered datasets that are used 
 * **mark_twain.csv**:   Quick check of about 10  quotes to test with supervised models.
 * **twain_target.csv**: Quote data for the Mark Twain quick check. Fields include the author (i.e source) and the original quote along with the text in its various stages of transformation, no_stopwords, lemmatized and finally stemmed.
 * **quote.csv**:   All quotes - Fields include author (i.e source) and the original quote along with the text in its various stages of transformation, no_stopwords, lemmatized and finally stemmed.
-* **scripture.csv**: Quote data for Scripture (Bible, Quran Granth Sahib), generated with an nltk enhanced stopword list that included [unto, ye, thee ]. Fields include the author (i.e source) and the original quote along with the text in its various stages of transformation, no_stopwords, lemmatized and finally stemmed.
+* **scripture.csv**: Quote data for Scripture (Bible, Granth Sahib, Quran), generated with an nltk enhanced stopword list. Fields include the author (i.e source) and the original quote along with the text in its various stages of transformation, no_stopwords, lemmatized and finally stemmed.
 * **scripture_original_sw.csv**: Another Scripture dataset, this time generated with the original nltk stopword list. Fields include the author (i.e source) and the original quote along with the text in its various stages of transformation, no_stopwords, lemmatized and finally stemmed.
 
 #### Gridsearch Results
-The _gridsearch_results_ directory includes results from the various gridsearchCVs run over various pipeline. To help with the supervised modeling process, I began writing estimator details to a dataframe and then to a .csv file so that I would have a history of performance (accuracy scores) for the different parameters.  This is mostly an internal dataset for my benefit so I will not provided more details at this time.
+The _gridsearch_results_ directory includes results from the various gridsearchCVs run over the various pipelines. To help with the supervised modeling process, I began writing estimator details to a dataframe and then to a .csv file so that I would have a history of performance (accuracy scores) for the different parameters.  This is mostly an internal dataset for my benefit so I will not provided more details at this time.
 
 * **gs_results.csv**: File containing score and parameter details for the numerous gribsearchCVs are the varous models and datasets.
 
