@@ -109,10 +109,10 @@ Supervised learning was done for the both the top 10 authors and scripture datas
 #### Supervised Learning Results
 With both datasets, the Naive Bayes model (MultinomialNB) was the best performer with  LogisticRegression not far behind.  The ensemble RandomForestClassifier did not perform well with either dataset.
 
-**Scriptures**
+**Scriptures**:
 The baseline for the scripture dataset was .518 and the MultinomialNB model was able to achieve an accuracy score .945 using quote data with only stopwords removed and tokenized, counted and normalized with a TfidfVectorizer. The parameters for the vectorizer included lowercase=False, max_df=0.5, max_features=None and ngrams=(1,2).  Parameters for the classifier included an alpha=0.2 and a fit_prior=False.
 
-**Top 10 Authors**
+**Top 10 Authors**:
 The baseline for the top 10 dataset was just .175 and the MultinomialNB model was able to achieve an accuracy score .604 accuracy with the following parameters using quote data with only stopwords removed and tokenized, counted with a CountVectorizer. The parameters for the vectorizer included lowercase=True, max_df=0.5, min_df=1, max_feaures=None and ngrams=(1,2).  Parameters for the classifier included an alpha=0.2 and a fit_prior=True.
 
 
