@@ -76,24 +76,24 @@ Note the extraction code was designed so that quotes could be extracted in batch
 Several steps were taken to prepare the scraped data for modeling.  First, the dataset included 6945 authors - a very large count for supervised classification modeling. Also, many of the authors had only a limited number of quotes - too few for effective modeling.  In order reduce the number of authors to a reasonable classification problem and also ensure that the authors had a sufficient number of quotes for modeling, data was group by author, his/her quotes were counted and then ordered in descending order.  I reviewed the top 15 authors and decided to exclude authors that were not individuals (i.e. Bible, Quran, Granth Sahib) or were 'Unknown' and then re-grouped and re-counted.  From there I selected the top 10 authors which gave me an all male list with each author having more than 300 quotes.  
 
 **List of top 10 authors and their quote count**
-Ralph Waldo Emerson (888) <\br>
-Mark Twain (679) <\br>
-William Shakespeare (574)
-Oscar Wilde (509)
-Albert Einstein (485)
-George Bernard Shaw (402)
-Ambrose Gwinett Bierce (398)
-Henry David Thoreau (396)
-Friedrich Wilhelm Nietzsche (393)
-Scott McClellan (354)
+Ralph Waldo Emerson (888) <br></br>
+Mark Twain (679) <br></br>
+William Shakespeare (574)<br></br>
+Oscar Wilde (509)<br></br>
+Albert Einstein (485)<br></br>
+George Bernard Shaw (402)<br></br>
+Ambrose Gwinett Bierce (398)<br></br>
+Henry David Thoreau (396)<br></br>
+Friedrich Wilhelm Nietzsche (393)<br></br>
+Scott McClellan (354)<br></br>
 (**total of 5,078 quotes**)
 
 I was also curious about the religious sources that were scraped so I decided to keep those as a separate dataset and attempt to model them as well. 
 
 **Religious scriptures and their quote count**
-Bible (1139)
-Granth Sahib (574)
-Quran (486)
+Bible (1139)<br></br>
+Granth Sahib (574)<br></br>
+Quran (486)<br></br>
 (**total of 2,199 quotes**)
 
 #### Data Transformation
