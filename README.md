@@ -76,8 +76,8 @@ Note the extraction code was designed so that quotes could be extracted in batch
 Several steps were taken to prepare the scraped data for modeling.  First, the dataset included 6945 authors - a very large count for supervised classification modeling. Also, many of the authors had only a limited number of quotes - too few for effective modeling.  In order reduce the number of authors to a reasonable classification problem and also ensure that the authors had a sufficient number of quotes for modeling, data was group by author, his/her quotes were counted and then ordered in descending order.  I reviewed the top 15 authors and decided to exclude authors that were not individuals (i.e. Bible, Quran, Granth Sahib) or were 'Unknown' and then re-grouped and re-counted.  From there I selected the top 10 authors which gave me an all male list with each author having more than 300 quotes.  
 
 **List of top 10 authors and their quote count**
-Ralph Waldo Emerson (888)
-Mark Twain (679)
+Ralph Waldo Emerson (888) <\br>
+Mark Twain (679) <\br>
 William Shakespeare (574)
 Oscar Wilde (509)
 Albert Einstein (485)
